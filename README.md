@@ -11,3 +11,11 @@ Allows players to filter portals based on their history status (unvisited, visit
 Forces IITC to load all portals, all links, or default view regardless of current map zoom level. Especially useful when you need to view long-distance links or all portals in dense areas.
 
 强制 IITC 加载所有 Portal、所有链接或默认视图，无论当前地图缩放级别如何。特别适合需要查看远距离连线或密集区域所有 Portal 的情况。
+
+## Others
+
+### [Unique Portal History](https://raw.githubusercontent.com/IITC-CE/Community-plugins/master/dist/DanielOnDiordna/uniqueportalhistory.user.js) by DanielOnDiordna
+
+### [Unique Visits/Captures Heatmap](https://raw.githubusercontent.com/IITC-CE/Community-plugins/master/dist/xificurk/uniques-heatmap.user.js) by xificurk
+
+### [Zoom Override](https://raw.githubusercontent.com/IITC-CE/Community-plugins/master/dist/DanielOnDiordna/zoom-override.user.js) by DanielOnDiordna
