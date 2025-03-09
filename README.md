@@ -12,7 +12,7 @@ Forces IITC to load all portals, all links, or default view regardless of curren
 
 强制 IITC 加载所有 Portal、所有链接或默认视图，无论当前地图缩放级别如何。特别适合需要查看远距离连线或密集区域所有 Portal 的情况。
 
-## Others
+## Other from [IITC-CE Community Plugins](https://github.com/IITC-CE/Community-plugins)
 
 ### [Unique Portal History](https://raw.githubusercontent.com/IITC-CE/Community-plugins/master/dist/DanielOnDiordna/uniqueportalhistory.user.js) by DanielOnDiordna
 
