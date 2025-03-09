@@ -2,8 +2,8 @@
 // @id             iitc-portal-history-filters
 // @name           IITC plugin: Portal History Filters
 // @category       Layer
-// @version        1.0.0
-// @author         NanoApe
+// @version        1.0.1.20250309.185524
+// @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Allow users to filter portals based on their history (visited, unvisited, captured, uncaptured)
 // @homepageURL    https://github.com/Konano/iitc-plugins
@@ -21,7 +21,7 @@ function wrapper(plugin_info) {
 
     // PLUGIN INFO ////////////////////////////////////////////////////////
     plugin_info.buildName = 'portalHistoryFilters';
-    plugin_info.dateTimeVersion = '20250309000000';
+    plugin_info.dateTimeVersion = '20250309.185524';
     plugin_info.pluginId = 'portal-history-filters';
 
     // PLUGIN START ////////////////////////////////////////////////////////
@@ -40,24 +40,19 @@ function wrapper(plugin_info) {
         // Define all history filter configurations
         const historyFilters = [
             {
-                id: 'visited',
-                name: 'Visited Portals',
-                filter: { portal: true, data: { history: { visited: true } } }
-            },
-            {
                 id: 'unvisited',
                 name: 'Unvisited Portals',
                 filter: { portal: true, data: { history: { visited: false } } }
             },
             {
+                id: 'visited',
+                name: 'Visited but Uncaptured Portals',
+                filter: { portal: true, data: { history: { visited: true, captured: false } } }
+            },
+            {
                 id: 'captured',
                 name: 'Captured Portals',
                 filter: { portal: true, data: { history: { captured: true } } }
-            },
-            {
-                id: 'uncaptured',
-                name: 'Uncaptured Portals',
-                filter: { portal: true, data: { history: { captured: false } } }
             }
         ];
 
