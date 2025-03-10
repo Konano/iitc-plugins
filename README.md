@@ -1,4 +1,10 @@
-# IITC Plugins by Konano
+# IITC-CE Plugins by Konano
+
+> [!IMPORTANT]
+> 
+> Only supports IITC-CE, does not support iitc.me
+> 
+> 只支持新版的 IITC-CE，不支持老版的 iitc.me   
 
 ### [Portal History Filters](https://github.com/Konano/iitc-plugins/raw/main/portal-history-filters.user.js)
 
