@@ -12,7 +12,7 @@ Allows players to filter portals based on their history status (unvisited, visit
 
 允许玩家根据 Portal 的历史状态（未访问、已访问但未占领、已占领）进行筛选。添加额外的地图层，帮助您轻松找到未访问的 Portal 或已占领的 Portal。
 
-### [Force Zoom Level](https://github.com/yourusername/iitc-plugins/raw/main/force-zoomlevel.user.js)
+### [Force Zoom Level](https://github.com/Konano/iitc-plugins/raw/main/force-zoomlevel.user.js)
 
 Forces IITC to load all portals, all links, or default view regardless of current map zoom level. Especially useful when you need to view long-distance links or all portals in dense areas.
 
