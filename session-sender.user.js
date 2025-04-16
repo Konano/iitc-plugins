@@ -2,7 +2,7 @@
 // @id             iitc-plugin-session-sender
 // @name           IITC plugin: Session Sender
 // @category       Misc
-// @version        0.1.0.20250320.001111
+// @version        0.1.0.20250416.143600
 // @author         AI Assistant
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Sends session ID to a specified URL via POST request.
@@ -94,10 +94,13 @@ function wrapper(plugin_info) {
         GM_cookie.list(
             { domain: "intel.ingress.com" },
             function(cookies) {
-                var sessionId = '';
+                var sessionId = null;
                 for (var i = 0; i < cookies.length; i++) {
                     if (cookies[i].name === 'sessionid') {
-                        sessionId = cookies[i].value;
+                        sessionId = {
+                            'value': cookies[i].value,
+                            'expires': cookies[i].expirationDate
+                        }
                         break;
                     }
                 }
@@ -124,7 +127,7 @@ function wrapper(plugin_info) {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ sessionId: sessionId })
+                body: JSON.stringify(sessionId)
             })
             .then(response => {
                 if (response.ok) {
