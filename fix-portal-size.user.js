@@ -2,7 +2,7 @@
 // @id             iitc-plugin-fix-portal-size
 // @name           IITC plugin: Fix Portal Size
 // @category       Highlighter
-// @version        1.0.0.20250424.125800
+// @version        1.0.1.20250424.130038
 // @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Fixes portal size rendering with options for all portals or only machina portals.
@@ -21,7 +21,7 @@ function wrapper(plugin_info) {
 
     // PLUGIN INFO ////////////////////////////////////////////////////////
     plugin_info.buildName = 'fixPortalSize';
-    plugin_info.dateTimeVersion = '20250424.125800';
+    plugin_info.dateTimeVersion = '20250424.130038';
     plugin_info.pluginId = 'fix-portal-size';
 
     // PLUGIN START ////////////////////////////////////////////////////////
@@ -47,8 +47,8 @@ function wrapper(plugin_info) {
 
     // Add toggle button to the portal highlighter menu
     self.setupHighlighter = function () {
-        window.addPortalHighlighter('Fix All Portal Sizes', self.fixAllPortalSize);
-        window.addPortalHighlighter('Fix Machina Portal Sizes', self.fixMachinaPortalSize);
+        window.addPortalHighlighter('Fix Portal Sizes', self.fixAllPortalSize);
+        window.addPortalHighlighter('Fix Portal Sizes (Machina)', self.fixMachinaPortalSize);
     };
 
     // Initialize plugin
