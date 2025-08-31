@@ -2,7 +2,7 @@
 // @id             iitc-plugin-coordinates-search-dm
 // @name           IITC plugin: Coordinates Search DM Format
 // @category       Search
-// @version        1.0.1.20250603.011800
+// @version        1.0.1.20250831.152639
 // @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Adds support for searching coordinates in Degrees Minutes format (N 30° 14.832 E 120° 10.644)
@@ -21,7 +21,7 @@ function wrapper(plugin_info) {
 
     // PLUGIN INFO ////////////////////////////////////////////////////////
     plugin_info.buildName = 'coordinatesSearchDM';
-    plugin_info.dateTimeVersion = '20250426.004531';
+    plugin_info.dateTimeVersion = '20250831.152639';
     plugin_info.pluginId = 'coordinates-search-dm';
 
     // PLUGIN START ////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ function wrapper(plugin_info) {
         const added = new Set();
         
         // Regular expression for DM coordinates (N 30° 14.832 E 120° 10.644)
-        const dmRegex = /([NS])\s*(\d{1,3})°\s*(\d{1,2}(?:\.\d+)?)'?,?\s*([EW])\s*(\d{1,3})°\s*(\d{1,2}(?:\.\d+)?)'?/gi;
+        const dmRegex = /([NS])\s*(\d{1,3})°\s*(\d{1,2}(?:\.\d+)?)['′]?,?\s*([EW])\s*(\d{1,3})°\s*(\d{1,2}(?:\.\d+)?)['′]?/gi;
 
         // Convert DM to decimal format
         const parseDM = (dir, deg, min) => {
