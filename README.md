@@ -24,6 +24,12 @@ Adjusts the size of MACHINA Portal or all Portals to Level 1 for easier viewing.
 
 将 MACHINA Portal 或者所有 Portal 的大小调整为 Level 1 以方便查看。
 
+### [S2 Cells](https://github.com/Konano/iitc-plugins/raw/main/s2-cells.user.js)
+
+Shows configurable S2 level cells on the map. Allows you to configure two different cell levels with customizable colors and line widths.
+
+在地图上显示可配置的 S2 级别单元格。允许您配置两个不同的单元格级别，并自定义颜色和线宽。
+
 ## Other from [IITC-CE Community Plugins](https://github.com/IITC-CE/Community-plugins)
 
 ### [Unique Portal History](https://raw.githubusercontent.com/IITC-CE/Community-plugins/master/dist/DanielOnDiordna/uniqueportalhistory.user.js) by DanielOnDiordna
