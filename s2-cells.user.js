@@ -2,7 +2,7 @@
 // @id             iitc-plugin-s2-cells
 // @name           IITC plugin: S2 Cells
 // @category       Layer
-// @version        0.2.0.20250930.000000
+// @version        0.2.1.20251018.000000
 // @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Shows configurable S2 level cells on the map
@@ -443,7 +443,7 @@ function wrapper(plugin_info) {
     };
 
     // Draw a single cell
-    self.drawCell = function (cell, color, weight) {
+    self.drawCell = function (cell, color, weight, showName) {
         var corners = cell.getCornerLatLngs();
         var center = cell.getLatLng();
         var name = self.getRegionName(cell);
@@ -459,30 +459,32 @@ function wrapper(plugin_info) {
 
         self.cellLayer.addLayer(region);
 
-        // Draw cell name at high zoom levels
-        if (window.map.getZoom() >= 9) {
-            var namebounds = window.map.getBounds().pad(-0.1);
-            if (!namebounds.contains(center)) {
-                var newlat = Math.max(Math.min(center.lat, namebounds.getNorth()), namebounds.getSouth());
-                var newlng = Math.max(Math.min(center.lng, namebounds.getEast()), namebounds.getWest());
-                var newpos = L.latLng(newlat, newlng);
+        if (showName) {
+            // Draw cell name at high zoom levels
+            if (window.map.getZoom() >= 9) {
+                var namebounds = window.map.getBounds().pad(-0.1);
+                if (!namebounds.contains(center)) {
+                    var newlat = Math.max(Math.min(center.lat, namebounds.getNorth()), namebounds.getSouth());
+                    var newlng = Math.max(Math.min(center.lng, namebounds.getEast()), namebounds.getWest());
+                    var newpos = L.latLng(newlat, newlng);
 
-                var newposcell = S2.S2Cell.FromLatLng(newpos, 6);
-                if (newposcell.toString() == cell.toString()) {
-                    center = newpos;
+                    var newposcell = S2.S2Cell.FromLatLng(newpos, 6);
+                    if (newposcell.toString() == cell.toString()) {
+                        center = newpos;
+                    }
                 }
             }
-        }
 
-        var marker = L.marker(center, {
-            icon: L.divIcon({
-                className: 's2-cells-name',
-                iconAnchor: [100, 5],
-                iconSize: [200, 10],
-                html: name,
-            })
-        });
-        self.cellLayer.addLayer(marker);
+            var marker = L.marker(center, {
+                icon: L.divIcon({
+                    className: 's2-cells-name',
+                    iconAnchor: [100, 5],
+                    iconSize: [200, 10],
+                    html: name,
+                })
+            });
+            self.cellLayer.addLayer(marker);
+        }
     };
 
     // Main update function
@@ -499,7 +501,7 @@ function wrapper(plugin_info) {
         var seenCells = {};
         var zoom = window.map.getZoom();
 
-        var drawCellAndNeighbors = function (cell, color, weight) {
+        var drawCellAndNeighbors = function (cell, color, weight, showName) {
             var cellStr = cell.toString();
 
             if (!seenCells[cellStr]) {
@@ -509,11 +511,11 @@ function wrapper(plugin_info) {
                 var cellBounds = L.latLngBounds([corners[0], corners[1]]).extend(corners[2]).extend(corners[3]);
 
                 if (cellBounds.intersects(bounds)) {
-                    self.drawCell(cell, color, weight);
+                    self.drawCell(cell, color, weight, showName);
 
                     var neighbors = cell.getNeighbors();
                     for (var i = 0; i < neighbors.length; i++) {
-                        drawCellAndNeighbors(neighbors[i], color, weight);
+                        drawCellAndNeighbors(neighbors[i], color, weight, showName);
                     }
                 }
             }
@@ -527,8 +529,8 @@ function wrapper(plugin_info) {
             var lightCell = S2.S2Cell.FromLatLng(window.map.getCenter(), self.settings.lightCell);
             var darkCell = S2.S2Cell.FromLatLng(window.map.getCenter(), self.settings.darkCell);
 
-            drawCellAndNeighbors(lightCell, self.settings.lightColor, self.settings.lightWidth);
-            drawCellAndNeighbors(darkCell, self.settings.darkColor, self.settings.darkWidth);
+            drawCellAndNeighbors(lightCell, self.settings.lightColor, self.settings.lightWidth, false);
+            drawCellAndNeighbors(darkCell, self.settings.darkColor, self.settings.darkWidth, true);
         }
 
         // Draw S2 cube face boundaries
