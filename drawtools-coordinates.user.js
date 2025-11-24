@@ -2,8 +2,8 @@
 // @id             iitc-plugin-drawtools-coordinates
 // @name           IITC plugin: DrawTools Coordinates
 // @category       Draw
-// @version        0.2.0
-// @author         AI Assistant
+// @version        0.2.1
+// @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Display coordinates of all drawn items from DrawTools plugin
 // @homepageURL    https://github.com/Konano/iitc-plugins
@@ -47,7 +47,7 @@ function wrapper(plugin_info) {
         }
 
         // return direction + ' ' + degrees + '° ' + minutes.toFixed(3) + "'";
-        return direction + ' ' + degrees + '° ' + minutes.toFixed(3);
+        return direction + ' ' + degrees + '° ' + minutes.toFixed(3).padStart(6, '0');
     };
 
     // 格式化坐标（包含两种格式）
