@@ -2,8 +2,8 @@
 // @id             iitc-plugin-session-sender
 // @name           IITC plugin: Session Sender
 // @category       Misc
-// @version        0.1.0.20250416.143600
-// @author         AI Assistant
+// @version        0.1.0
+// @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Sends session ID to a specified URL via POST request.
 // @homepageURL    https://github.com/Konano/iitc-plugins
