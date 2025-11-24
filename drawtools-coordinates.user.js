@@ -6,10 +6,10 @@
 // @author         Konano
 // @namespace      https://github.com/Konano/iitc-plugins
 // @description    Display coordinates of all drawn items from DrawTools plugin
-// @homepageURL    https://github.com/Konano/iitc-plugins
 // @updateURL      https://github.com/Konano/iitc-plugins/raw/main/drawtools-coordinates.user.js
 // @downloadURL    https://github.com/Konano/iitc-plugins/raw/main/drawtools-coordinates.user.js
 // @supportURL     https://github.com/Konano/iitc-plugins/issues
+// @homepageURL    https://github.com/Konano/iitc-plugins
 // @match          https://intel.ingress.com/*
 // @license        MIT
 // @grant          none
